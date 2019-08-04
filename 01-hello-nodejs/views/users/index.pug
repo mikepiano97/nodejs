@@ -1,0 +1,32 @@
+extends ../layouts/common
+block title
+	title User List Demo	
+block content 
+	.container
+		.row
+			h1.display-1 User List
+		
+			
+		.row.d-flex.justify-content-between
+			a.btn.btn-primary.my-auto(href="/user/create") Create New User
+			div.p-0
+				form(action="/user/search", method="GET")
+					.form-group.d-flex
+						input.form-control(name="q", type="text")
+						button.btn.btn-primary.ml-2 Search
+		.row
+			table.table
+				thead
+					tr
+						th Name
+						th Phone
+						th Action
+				tbody
+					each user in users
+						tr
+							td= user.name
+							td= user.phone
+							td
+								a.btn.btn-light(href="/user/" + user.id) View
+				
+		

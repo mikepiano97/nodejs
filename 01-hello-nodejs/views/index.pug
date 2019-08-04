@@ -1,0 +1,10 @@
+extends ./layouts/common
+block title
+	title Home Page Demo	
+block content 
+	div.container
+		div.row.d-flex.flex-column.justify-content-center.align-items-center
+			h1(class="display-4") Hello #{name}
+			img(src="/images/leductho.jpg", class="rounded-circle mt-4 mb-4", style="height: 250px")
+			a(href="/user", style="", class="btn btn-primary btn-block") Click here to get User list
+			

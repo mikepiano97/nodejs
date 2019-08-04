@@ -1,0 +1,13 @@
+extends ../layouts/common
+block title
+	title View Demo
+block content
+	.container
+		.row
+			h1 This is the detail of user
+		.row
+			b Name: 
+				span= user.name
+		.row
+			b Phone: 
+				span= user.phone 
