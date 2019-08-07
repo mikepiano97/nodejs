@@ -4,6 +4,12 @@ var port = 3000;
 
 // userRoute requirement
 var userRoute = require('./routes/user.route');
+var userAuth = require('./routes/auth.route');
+var authMiddleware = require('./middlewares/auth.middleware');
+
+// cookie parser
+var cookieParser = require('cookie-parser');
+app.use(cookieParser());
 
 // database setting
 var db = require('./db');
@@ -25,7 +31,8 @@ app.get('/',function (req, res) {
 	});
 });
 
-app.use('/user', userRoute);
+app.use('/user', authMiddleware.checkUser, userRoute);
+app.use('/auth', authMiddleware.checkLogin, userAuth);
 
 // listen the port
 app.listen(port, function () {
