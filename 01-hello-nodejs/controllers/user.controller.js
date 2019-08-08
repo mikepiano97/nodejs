@@ -9,6 +9,9 @@ var shortid = require('shortid');
 
 
 module.exports.index = function (req, res) {
+	
+	console.log(req.signedCookies, req.cookie);
+
 	res.render('users/index', {
 		users: db.get('userlist').value()
 	});

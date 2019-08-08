@@ -18,5 +18,8 @@ html
 									span.sr-only (current)
 							li.nav-item
 								a.nav-link(href='/user/create') Create User
+				if user
+					.row.float-right
+						p= user.name
 
 		block content

@@ -9,7 +9,7 @@ var authMiddleware = require('./middlewares/auth.middleware');
 
 // cookie parser
 var cookieParser = require('cookie-parser');
-app.use(cookieParser());
+app.use(cookieParser('leductho'));
 
 // database setting
 var db = require('./db');
