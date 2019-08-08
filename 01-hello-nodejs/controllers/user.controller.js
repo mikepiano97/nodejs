@@ -1,5 +1,6 @@
 //db setting
 var db = require('../db');
+var md5 = require('md5');
 
 
 
@@ -33,7 +34,9 @@ module.exports.getCreate = function (req, res) {
 }
 
 module.exports.postCreate = function (req, res) {
-	req.body.id = shortid.generate();	
+	req.body.id = shortid.generate();
+	req.body.password = md5(req.body.password);
+	console.log(req.body);
 	
 	db.get('userlist')
 		  .push(req.body)

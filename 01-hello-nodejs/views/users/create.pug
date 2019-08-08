@@ -17,4 +17,10 @@ block content
 						div(class="form-group")
 							label(for="phone") Phone Number
 							input#phone(type="number", name="phone", class="form-control", value= values?values.phone:"")
+						div(class="form-group")
+							label(for="email") Email
+							input#email(type="text", name="email", class="form-control", value= values?values.email:"")
+						div(class="form-group")
+							label(for="password") Password
+							input#password(type="password", name="password", class="form-control", value= values?values.password:"")
 						button(type="submit", class="btn btn-primary btn-block") Create
