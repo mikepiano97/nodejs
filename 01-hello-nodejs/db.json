@@ -3,17 +3,14 @@
     {
       "name": "Le Duc Tho",
       "phone": "0986143758",
-      "id": "kKIaICgI1"
+      "id": "kKIaICgI1",
+      "email": "thold.marketing@gmail.com",
+      "password": "123456"
     },
     {
       "name": "Le Duc Tai",
       "phone": "098765432",
       "id": "kidWQ4XrW"
-    },
-    {
-      "name": "Bui Thi Hong Nhung",
-      "phone": "0976662515",
-      "id": "V3vqi9N2Y"
     }
   ]
 }

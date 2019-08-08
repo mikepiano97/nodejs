@@ -7,16 +7,16 @@ html
 		nav.navbar.navbar-expand-lg.navbar-light.bg-light
 			.container
 				.row
-					a.navbar-brand(href='#') CodersTokyo
+					a.navbar-brand(href='/') CodersTokyo
 					button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
 						span.navbar-toggler-icon
 					#navbarSupportedContent.collapse.navbar-collapse
 						ul.navbar-nav.mr-auto
 							li.nav-item.active
-								a.nav-link(href='/')
+								a.nav-link(href='/user')
 									| Home 
 									span.sr-only (current)
 							li.nav-item
-								a.nav-link(href='/user') User
+								a.nav-link(href='/user/create') Create User
 
 		block content
