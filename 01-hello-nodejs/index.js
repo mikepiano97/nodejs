@@ -1,3 +1,7 @@
+require('dotenv').config();
+
+console.log(process.env.COOKIE_SECRET);
+
 var express = require('express');
 var app = express();
 var port = 3000;
@@ -9,7 +13,7 @@ var authMiddleware = require('./middlewares/auth.middleware');
 
 // cookie parser
 var cookieParser = require('cookie-parser');
-app.use(cookieParser('leductho'));
+app.use(cookieParser(process.env.COOKIE_SECRET));
 
 // database setting
 var db = require('./db');
