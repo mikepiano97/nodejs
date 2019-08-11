@@ -1,0 +1,28 @@
+extends ../layouts/common
+block title
+	title Product Demo - Pagination
+block content 
+	.container
+		.row.d-flex.justify-content-between
+			h1.display-4 Products
+			nav(aria-label='Phantrang')
+				ul.pagination.justify-content-end
+					li.page-item
+						a.page-link(href='?page='+(page-1)||1) Previous
+					li.page-item
+						a.page-link(href='?page='+(page-1))= page-1
+					li.page-item
+						a.page-link(href='?page='+page)= page
+					li.page-item
+						a.page-link(href='?page='+(page+1))= page+1
+					li.page-item
+						a.page-link(href='?page='+(page+1)) Next
+		.row
+		each product in products
+			.col-md-3.float-left.mb-5(style="height: 500px;")
+				img.card-img-top(src=product.prod_image)
+				.card-body
+					h5.card-title= product.prod_name
+					p.card-text= product.prod_des
+					a.btn.btn-primary(href='#') Go somewhere
+		

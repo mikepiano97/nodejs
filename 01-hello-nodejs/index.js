@@ -9,6 +9,7 @@ var port = 3000;
 // userRoute requirement
 var userRoute = require('./routes/user.route');
 var userAuth = require('./routes/auth.route');
+var productRoute = require('./routes/product.route');
 var authMiddleware = require('./middlewares/auth.middleware');
 
 // cookie parser
@@ -37,6 +38,7 @@ app.get('/',function (req, res) {
 
 app.use('/user', authMiddleware.checkUser, userRoute);
 app.use('/auth', authMiddleware.checkLogin, userAuth);
+app.use('/product', productRoute);
 
 // listen the port
 app.listen(port, function () {
