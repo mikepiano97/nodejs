@@ -18,6 +18,13 @@ html
 									span.sr-only (current)
 							li.nav-item
 								a.nav-link(href='/user/create') Create User
+							li.nav-item
+								a.nav-link(href='/product') Product
+							li.nav-item
+								a.nav-link(href='/cart') Cart 
+								if cart
+									span= cart.quanlity
+							
 				if user
 					.row.float-right
 						p= user.name

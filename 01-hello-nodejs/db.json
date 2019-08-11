@@ -724,5 +724,18 @@
       "prod_des": "Beam Radiation of Inguinal Lymphatics using Photons 1 - 10 MeV",
       "prod_price": 322
     }
+  ],
+  "sessions": [
+    {
+      "id": "lJeQyxF22"
+    },
+    {
+      "id": "3_1iMvi7h",
+      "cart": {
+        "e34b64c0-f8df-444a-92b3-f89d0e99b470": 15,
+        "7e2d1f63-f7fd-423f-b8e0-8d50be72bc7e": 1,
+        "80e5e364-fc99-460a-91f9-fb5f0a745784": 1
+      }
+    }
   ]
 }

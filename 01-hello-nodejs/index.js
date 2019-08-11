@@ -4,11 +4,15 @@ var express = require('express');
 var app = express();
 var port = 3000;
 
-// userRoute requirement
+// route
 var userRoute = require('./routes/user.route');
 var userAuth = require('./routes/auth.route');
 var productRoute = require('./routes/product.route');
+var cartRoute = require('./routes/cart.route');
+
+// middleware
 var authMiddleware = require('./middlewares/auth.middleware');
+var sessionMiddleware = require('./middlewares/session.middleware');
 
 // cookie parser
 var cookieParser = require('cookie-parser');
@@ -19,6 +23,7 @@ var db = require('./db');
 
 // setting public folder for static files
 app.use(express.static('public'));
+app.use(sessionMiddleware);
 
 
 // set view folder
@@ -37,6 +42,7 @@ app.get('/',function (req, res) {
 app.use('/user', authMiddleware.checkUser, userRoute);
 app.use('/auth', authMiddleware.checkLogin, userAuth);
 app.use('/product', productRoute);
+app.use('/cart', cartRoute);
 
 // listen the port
 app.listen(port, function () {
