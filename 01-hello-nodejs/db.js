@@ -6,7 +6,7 @@ var adapter = new FileSync('db.json');
 var db = low(adapter);
 
 // Set some defaults (required if your JSON file is empty)
-db.defaults({ userlist: [], sessions: [] })
+db.defaults({ userlist: [], sessions: [], transfer: [] })
   .write();
   
 module.exports = db;
