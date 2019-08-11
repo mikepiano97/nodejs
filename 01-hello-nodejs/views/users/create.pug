@@ -10,7 +10,7 @@ block content
 					if errors
 						each error in errors
 							.alert.alert-danger= error
-					form(action="/user/create", method="POST")
+					form(action="/user/create", method="POST", enctype="multipart/form-data")
 						div(class="form-group")
 							label(for="name") User Name
 							input#name(type="text", name="name", class="form-control", value= values?values.name:"")
@@ -23,4 +23,8 @@ block content
 						div(class="form-group")
 							label(for="password") Password
 							input#password(type="password", name="password", class="form-control", value= values?values.password:"")
+						div(class="form-group")
+							label(for="avatar") Avatar
+							input#avatar(type="file", name="avatar", class="form-control")
+						
 						button(type="submit", class="btn btn-primary btn-block") Create

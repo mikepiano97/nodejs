@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
+var multer  = require('multer');
+var upload = multer({ dest: './public/uploads/' });
+
 // cookie parser
 var cookieParser = require('cookie-parser');
 router.use(cookieParser());
@@ -30,7 +33,7 @@ router.get('/search', userController.search);
 
 // create new user
 router.get('/create', userController.getCreate);
-router.post('/create', validate.postCreate, userController.postCreate);
+router.post('/create', upload.single('avatar'), validate.postCreate, userController.postCreate);
 
 // view the specific user
 router.get('/:id', userController.getUser);

@@ -2,15 +2,13 @@
 var db = require('../db');
 var md5 = require('md5');
 
-
-
 // shortid requirement
 var shortid = require('shortid');
 
 
 module.exports.index = function (req, res) {
 	
-	console.log(req.signedCookies, req.cookie);
+	// console.log(req.signedCookies, req.cookie);
 
 	res.render('users/index', {
 		users: db.get('userlist').value()
@@ -32,14 +30,15 @@ module.exports.search = function (req, res) {
 }
 
 module.exports.getCreate = function (req, res) {
-	console.log(req.cookies);
+	// console.log(req.cookies);
 	res.render('users/create');
 }
 
 module.exports.postCreate = function (req, res) {
 	req.body.id = shortid.generate();
 	req.body.password = md5(req.body.password);
-	console.log(req.body);
+	req.body.avatar = req.file.path.split('/').slice(1).join('/');
+	// console.log(req.body);
 	
 	db.get('userlist')
 		  .push(req.body)
