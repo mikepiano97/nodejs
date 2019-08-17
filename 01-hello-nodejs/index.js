@@ -10,11 +10,22 @@ var userAuth = require('./routes/auth.route');
 var productRoute = require('./routes/product.route');
 var cartRoute = require('./routes/cart.route');
 var transerRoute = require('./routes/transer.route');
+var apiProductRoute = require('./api/routes/product.route');
+
+var mongoose = require('mongoose');
+mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true});
 
 // cookie parser
 var cookieParser = require('cookie-parser');
 app.use(cookieParser(process.env.COOKIE_SECRET));
-var csrf = require('csurf');
+// var csrf = require('csurf');
+
+
+// body-parser
+var bodyParser = require('body-parser');
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
 
 // middleware
 var authMiddleware = require('./middlewares/auth.middleware');
@@ -26,8 +37,7 @@ var db = require('./db');
 // setting public folder for static files
 app.use(express.static('public'));
 app.use(sessionMiddleware);
-app.use(csrf({ cookie: true }));
-
+// app.use(csrf({ cookie: true }));
 
 
 // set view folder
@@ -48,6 +58,7 @@ app.use('/auth', authMiddleware.checkLogin, userAuth);
 app.use('/product', productRoute);
 app.use('/cart', cartRoute);
 app.use('/transfer', authMiddleware.checkUser, transerRoute);
+app.use('/api/product', apiProductRoute);
 
 // listen the port
 app.listen(port, function () {
